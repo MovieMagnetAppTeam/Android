@@ -22,6 +22,7 @@ import static com.pam.pam_front.sharedPrefs.SharedPrefsManager.USER_TEMPORARY_PA
 public class LoginActivity extends AppCompatActivity {
 
     private Button loginButton;
+    private Button registerButton;
     private EditText editTextUserLogin;
     private EditText editTextUserPassword;
     private SharedPrefsManager sharedPrefsManager;
@@ -64,6 +65,13 @@ public class LoginActivity extends AppCompatActivity {
                 login();
             }
         });
+        registerButton = (Button) findViewById(R.id.registerButton);
+        registerButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startRegisterActivity();
+            }
+        });
     }
 
     private void login() {
@@ -74,6 +82,11 @@ public class LoginActivity extends AppCompatActivity {
         loginButton.setEnabled(false);
 
         onValidateSuccess();
+    }
+
+    private void startRegisterActivity() {
+        Intent intent = new Intent(getApplicationContext(), RegisterActivity.class);
+        startActivity(intent);
     }
 
     @Override
