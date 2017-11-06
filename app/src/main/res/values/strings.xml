@@ -3,6 +3,8 @@
     <string name="your_id">Tutaj wpisz swój login</string>
     <string name="your_password">Tutaj wpisz swoje hasło</string>
     <string name="logIn">Zaloguj się</string>
+    <string name="noAccount">Nie masz konta ? \nKliknij poniżej, aby je założyć !</string>
+    <string name="registration">Zarejestruj się</string>
     <string name="validFail">Logowanie nie powiodło się</string>
     <string name="validLogin">Wpisz poprawny login</string>
     <string name="validPassword">Wpisz poprawne hasło</string>
