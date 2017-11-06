@@ -2,12 +2,17 @@
     <string name="app_name">PAM-Front</string>
     <string name="your_id">Tutaj wpisz swój login</string>
     <string name="your_password">Tutaj wpisz swoje hasło</string>
+    <string name="your_password_again">Tutaj wpisz swoje hasło ponownie</string>
     <string name="logIn">Zaloguj się</string>
     <string name="noAccount">Nie masz konta ? \nKliknij poniżej, aby je założyć !</string>
     <string name="registration">Zarejestruj się</string>
     <string name="validFail">Logowanie nie powiodło się</string>
     <string name="validLogin">Wpisz poprawny login</string>
+    <string name="validLoginEmpty">Wpisz login</string>
     <string name="validPassword">Wpisz poprawne hasło</string>
+    <string name="validPasswordEmpty">Wpisz hasło</string>
+    <string name="validPasswordEmptyAgain">Wpisz hasło ponownie</string>
+    <string name="validPasswordAgainNotCorrect">Hasła w obu polach muszą być takie same</string>
     <string name="show_movie">Pokaż film</string>
     <string name="movie_title">Tytuł filmu</string>
     <string name="polish_title">Polski tytuł</string>
