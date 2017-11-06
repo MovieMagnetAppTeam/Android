@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">PAM-Front</string>
+    <string name="your_id">Tutaj wpisz swój login</string>
+    <string name="your_password">Tutaj wpisz swoje hasło</string>
+    <string name="logIn">Zaloguj się</string>
+    <string name="validFail">Logowanie nie powiodło się</string>
+    <string name="validLogin">Wpisz poprawny login</string>
+    <string name="validPassword">Wpisz poprawne hasło</string>
+    <string name="show_movie">Pokaż film</string>
+    <string name="movie_title">Tytuł filmu</string>
+    <string name="polish_title">Polski tytuł</string>
+    <string name="country_movie">Kraj</string>
+    <string name="plot_movie">Opis</string>
+</resources>

@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_single_movie"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/colorBlack"
+    tools:context="com.pam.pam_front.activities.SingleMovieActivity">
+
+    <TextView
+        android:text="@string/movie_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/movieTitle"
+        android:layout_weight="1"
+        android:textColor="@color/colorWhite"
+        android:textSize="30sp"
+        android:textAlignment="center"
+        android:gravity="center" />
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:weightSum="2">
+
+        <TextView
+            android:text="@string/polish_title"
+            android:textColor="@color/colorWhite"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:id="@+id/polishTitle"
+            android:layout_weight="1"
+            android:textAlignment="center"
+            android:gravity="center" />
+
+        <TextView
+            android:textColor="@color/colorWhite"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:id="@+id/polishTitleInput"
+            android:layout_weight="1"
+            android:textAlignment="center"
+            android:gravity="center" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1">
+        <TextView
+            android:text="@string/country_movie"
+            android:textColor="@color/colorWhite"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:id="@+id/country"
+            android:layout_weight="1"
+            android:textAlignment="center"
+            android:gravity="center" />
+
+        <TextView
+            android:textColor="@color/colorWhite"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:id="@+id/countryInput"
+            android:layout_weight="1"
+            android:textAlignment="center"
+            android:gravity="center" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1">
+        <TextView
+            android:text="@string/plot_movie"
+            android:textColor="@color/colorWhite"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:id="@+id/plot"
+            android:layout_weight="1"
+            android:textAlignment="center"
+            android:gravity="center" />
+
+        <TextView
+            android:textColor="@color/colorWhite"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:id="@+id/plotInput"
+            android:layout_weight="1"
+            android:textAlignment="center"
+            android:gravity="center" />
+    </LinearLayout>
+</LinearLayout>

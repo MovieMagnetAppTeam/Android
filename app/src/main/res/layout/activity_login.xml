@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/colorBlack"
+    android:paddingBottom="20dp"
+    android:paddingStart="20sp"
+    android:paddingEnd="20sp"
+    android:paddingTop="60dp">
+
+    <EditText
+        android:id="@+id/userId"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:ems="10"
+        android:hint="@string/your_id"
+        android:textCursorDrawable="@null"
+        android:textColor="@color/colorWhite"
+        android:textColorHint="@color/colorWhite"
+        android:inputType="text"
+        android:maxLength="18">
+    </EditText>
+
+    <EditText
+        android:id="@+id/userPassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="@string/your_password"
+        android:textCursorDrawable="@null"
+        android:textColor="@color/colorWhite"
+        android:textColorHint="@color/colorWhite"
+        android:inputType="text"
+        android:maxLength="18"
+        android:imeOptions="actionDone">
+    </EditText>
+
+    <Button
+        android:id="@+id/loginButton"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:background="@color/colorPrimaryDark"
+        android:text="@string/logIn"
+        android:textColor="@color/colorWhite" />
+
+</LinearLayout>
