@@ -18,4 +18,8 @@
     <string name="polish_title">Polski tytuł</string>
     <string name="country_movie">Kraj</string>
     <string name="plot_movie">Opis</string>
+    <string name="home">Home</string>
+    <string name="movie">Movie</string>
+    <string name="tv">TV</string>
+    <string name="news">News</string>
 </resources>

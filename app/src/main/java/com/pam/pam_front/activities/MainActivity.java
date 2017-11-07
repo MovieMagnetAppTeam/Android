@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.eightbitlab.bottomnavigationbar.BottomBarItem;
 import com.eightbitlab.bottomnavigationbar.BottomNavigationBar;
 import com.pam.pam_front.R;
 import com.pam.pam_front.sharedPrefs.SharedPrefsManager;
@@ -36,6 +37,16 @@ public class MainActivity extends AppCompatActivity {
         });
 
         bottomNavigationBar = (BottomNavigationBar) findViewById(R.id.bottomNavigationBar);
+        bottomNavigationBar.addTab(new BottomBarItem(R.drawable.ic_home, R.string.home));
+        bottomNavigationBar.addTab(new BottomBarItem(R.drawable.ic_movie, R.string.movie));
+        bottomNavigationBar.addTab(new BottomBarItem(R.drawable.ic_tv, R.string.tv));
+        bottomNavigationBar.addTab(new BottomBarItem(R.drawable.ic_news, R.string.news));
+        bottomNavigationBar.setOnSelectListener(new BottomNavigationBar.OnSelectListener() {
+            @Override
+            public void onSelect(int position) {
+                //Obsluga menu - position to pozycja wybranego przycisku
+            }
+        });
     }
 
     private void startSingleMovieActivity() {
