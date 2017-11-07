@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.eightbitlab.bottomnavigationbar.BottomNavigationBar;
 import com.pam.pam_front.R;
 import com.pam.pam_front.sharedPrefs.SharedPrefsManager;
 
@@ -14,6 +15,7 @@ public class MainActivity extends AppCompatActivity {
     private String userLogin;
     private SharedPrefsManager sharedPrefsManager;
     private Button showMovieButton;
+    private BottomNavigationBar bottomNavigationBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +34,8 @@ public class MainActivity extends AppCompatActivity {
                 startSingleMovieActivity();
             }
         });
+
+        bottomNavigationBar = (BottomNavigationBar) findViewById(R.id.bottomNavigationBar);
     }
 
     private void startSingleMovieActivity() {
