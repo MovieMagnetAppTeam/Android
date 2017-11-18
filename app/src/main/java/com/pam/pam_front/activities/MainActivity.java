@@ -3,6 +3,9 @@ package com.pam.pam_front.activities;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
@@ -27,6 +30,9 @@ public class MainActivity extends AppCompatActivity {
 
         userLogin = sharedPrefsManager.getLoggedUserLogin();
 
+        Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
+        setSupportActionBar(myToolbar);
+
         showMovieButton = (Button) findViewById(R.id.showRandomMovie);
 
         showMovieButton.setOnClickListener(new View.OnClickListener() {
@@ -47,6 +53,32 @@ public class MainActivity extends AppCompatActivity {
                 //Obsluga menu - position to pozycja wybranego przycisku
             }
         });
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        menu.clear();
+        getMenuInflater().inflate(R.menu.main_menu, menu);
+
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.action_search:
+
+                return true;
+
+            case R.id.action_my_account:
+
+                return true;
+
+            default:
+
+                return super.onOptionsItemSelected(item);
+
+        }
     }
 
     private void startSingleMovieActivity() {

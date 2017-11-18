@@ -22,4 +22,6 @@
     <string name="movie">Movie</string>
     <string name="tv">TV</string>
     <string name="news">News</string>
+    <string name="action_search">Wyszukaj</string>
+    <string name="action_my_account">Moje Konto</string>
 </resources>
