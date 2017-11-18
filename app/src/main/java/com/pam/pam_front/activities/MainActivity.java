@@ -102,6 +102,8 @@ public class MainActivity extends AppCompatActivity {
 
             case R.id.action_my_account:
 
+                Intent intent = new Intent(getApplicationContext(), UsersProfileActivity.class);
+                startActivity(intent);
                 return true;
 
             default:
