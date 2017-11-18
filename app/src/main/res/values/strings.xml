@@ -24,6 +24,8 @@
     <string name="news">News</string>
     <string name="action_search">Wyszukaj</string>
     <string name="action_my_account">Moje Konto</string>
+    <string name="add_new_tag">Dodaj tag...</string>
+    <string name="you_cant_add_empty_tag">Nie możesz dodać pustego tagu</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
