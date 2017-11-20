@@ -28,6 +28,8 @@
     <string name="you_cant_add_empty_tag">Nie możesz dodać pustego tagu</string>
     <string name="movies">Filmy</string>
     <string name="featured">Polecane</string>
+    <string name="most_popular_movies">Najpopularniejsze filmy</string>
+    <string name="in_theaters">W kinach</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
