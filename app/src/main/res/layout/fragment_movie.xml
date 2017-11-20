@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context="com.pam.pam_front.fragments.MovieFragment"
-    android:background="#33333e">
+    android:background="#1b281a">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -33,7 +33,7 @@
                     <RelativeLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:background="#515164">
+                        android:background="#273926">
 
                         <ImageView
                             android:id="@+id/movieCover0"
@@ -59,7 +59,7 @@
                     <RelativeLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:background="#515164">
+                        android:background="#273926">
 
                         <ImageView
                             android:id="@+id/movieCover1"
@@ -85,7 +85,7 @@
                     <RelativeLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:background="#515164">
+                        android:background="#273926">
 
                         <ImageView
                             android:id="@+id/movieCover2"
@@ -111,7 +111,7 @@
                     <RelativeLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:background="#515164">
+                        android:background="#273926">
 
                         <ImageView
                             android:id="@+id/movieCover3"
@@ -137,7 +137,7 @@
                     <RelativeLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:background="#515164">
+                        android:background="#273926">
 
                         <ImageView
                             android:id="@+id/movieCover4"
@@ -163,7 +163,7 @@
                     <RelativeLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:background="#515164">
+                        android:background="#273926">
 
                         <ImageView
                             android:id="@+id/movieCover5"
@@ -206,7 +206,7 @@
                     <RelativeLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:background="#515164">
+                        android:background="#273926">
 
                         <ImageView
                             android:id="@+id/movieCover6"
@@ -232,7 +232,7 @@
                     <RelativeLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:background="#515164">
+                        android:background="#273926">
 
                         <ImageView
                             android:id="@+id/movieCover7"
@@ -258,7 +258,7 @@
                     <RelativeLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:background="#515164">
+                        android:background="#273926">
 
                         <ImageView
                             android:id="@+id/movieCover8"
@@ -284,7 +284,7 @@
                     <RelativeLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:background="#515164">
+                        android:background="#273926">
 
                         <ImageView
                             android:id="@+id/movieCover9"
@@ -310,7 +310,7 @@
                     <RelativeLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:background="#515164">
+                        android:background="#273926">
 
                         <ImageView
                             android:id="@+id/movieCover10"
@@ -336,7 +336,7 @@
                     <RelativeLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:background="#515164">
+                        android:background="#273926">
 
                         <ImageView
                             android:id="@+id/movieCover11"

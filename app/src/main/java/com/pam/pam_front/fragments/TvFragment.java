@@ -6,6 +6,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.pam.pam_front.R;
 
@@ -23,6 +24,12 @@ public class TvFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_tv, container, false);
+    }
+
+    @Override
+    public void onViewCreated(View view, Bundle savedInstanceState) {
+        TextView movieTitle0 = (TextView) view.findViewById(R.id.movieTitle0);
+        movieTitle0.setText("MR. ROBOT");
     }
 
 }
