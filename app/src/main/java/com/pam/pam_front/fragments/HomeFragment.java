@@ -6,8 +6,10 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.pam.pam_front.R;
+import com.pam.pam_front.activities.MainActivity;
 
 
 public class HomeFragment extends Fragment {
@@ -16,5 +18,11 @@ public class HomeFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         return inflater.inflate(R.layout.fragment_home, container, false);
+    }
+
+    @Override
+    public void onViewCreated(View view, Bundle savedInstanceState) {
+        TextView movieTitle0 = (TextView) view.findViewById(R.id.movieTitle0);
+        movieTitle0.setText("Killer");
     }
 }
