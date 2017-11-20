@@ -35,7 +35,12 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title">Tytuł</string>
-    <string name="description">Opis</string>
-    <string name="search_hint">Search Fruit</string>
-    <string name="search_view">Enter search</string>
+    <string name="description">Wpisz nazwę filmu</string>
+    <string name="author">Autor</string>
+    <string name="comment_description">Komentarz</string>
+    <string name="search_hint">Wyszukaj film</string>
+    <string name="search_view">Otwórz wyszukiwanie</string>
+    <string name="comments_title">Komentarze</string>
+    <string name="your_comment">Tutaj wpisz swój komentarz</string>
+    <string name="post_comment">Wyślij</string>
 </resources>
