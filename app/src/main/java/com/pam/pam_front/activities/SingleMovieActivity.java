@@ -61,18 +61,12 @@ public class SingleMovieActivity extends AppCompatActivity {
 
     private void setOneMovie() {
         movie = new Movie();
-        movie.setId(1);
-        movie.setTitle("Wedding");
-        movie.setPolishTitle("Wesele");
-        movie.setCountry("Polska");
-        movie.setPlot("W jednej z polskich wsi odbywa się wesele.");
+        movie.setId("1");
+        movie.setTitle("Wedding");;
     }
 
     private void fillTextViews() {
         movieTitle.setText(movie.getTitle());
-        moviePolishTitle.setText(movie.getPolishTitle());
-        movieCountry.setText(movie.getCountry());
-        moviePlot.setText(movie.getPlot());
     }
 
     private List<Comment> createRandomCommentsList(int size) {

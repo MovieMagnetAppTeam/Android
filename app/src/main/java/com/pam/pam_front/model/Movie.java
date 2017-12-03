@@ -1,20 +1,18 @@
 package com.pam.pam_front.model;
 
+import java.util.List;
+
 public class Movie {
 
-    private long id;
     private String title;
-    private String polishTitle;
-    private String country;
-    private String plot;
-
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
-    }
+    private String description;
+    private String poster;
+    private List<String> genres;
+    private String year;
+    private List<Vote> votes;
+    private String type;
+    private String imdb_id;
+    private String id;
 
     public String getTitle() {
         return title;
@@ -24,27 +22,67 @@ public class Movie {
         this.title = title;
     }
 
-    public String getPolishTitle() {
-        return polishTitle;
+    public String getDescription() {
+        return description;
     }
 
-    public void setPolishTitle(String polishTitle) {
-        this.polishTitle = polishTitle;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
-    public String getCountry() {
-        return country;
+    public String getPoster() {
+        return poster;
     }
 
-    public void setCountry(String country) {
-        this.country = country;
+    public void setPoster(String poster) {
+        this.poster = poster;
     }
 
-    public String getPlot() {
-        return plot;
+    public String getYear() {
+        return year;
     }
 
-    public void setPlot(String plot) {
-        this.plot = plot;
+    public void setYear(String year) {
+        this.year = year;
+    }
+
+    public List<Vote> getVotes() {
+        return votes;
+    }
+
+    public void setVotes(List<Vote> votes) {
+        this.votes = votes;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public List<String> getGenres() {
+        return genres;
+    }
+
+    public void setGenres(List<String> genres) {
+        this.genres = genres;
+    }
+
+    public String getImdb_id() {
+        return imdb_id;
+    }
+
+    public void setImdb_id(String imdb_id) {
+        this.imdb_id = imdb_id;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 }
