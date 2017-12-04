@@ -2,6 +2,7 @@ package com.pam.pam_front.downloader;
 
 import android.util.Log;
 import android.content.Context;
+import com.pam.pam_front.model.IResponse;
 import com.pam.pam_front.model.Message;
 import com.pam.pam_front.model.Movie;
 import com.pam.pam_front.model.User;
@@ -34,8 +35,37 @@ public class MovieDownloader {
     private Exception exception;
     private SharedPrefsManager sharedPrefsManager;
     private Context context;
+    private IResponse iResponse;
 
     public MovieDownloader(Context context) {
+        this.context = context;
+        sharedPrefsManager = new SharedPrefsManager(context);
+        login = sharedPrefsManager.getLoggedUserLogin();
+        password = sharedPrefsManager.getLoggedUserPassword();
+        OkHttpClient okHttpClient = new OkHttpClient().newBuilder().addInterceptor(new Interceptor() {
+            @Override
+            public okhttp3.Response intercept(Chain chain) throws IOException {
+                Request originalRequest = chain.request();
+
+                Request.Builder builder = originalRequest.newBuilder().header("Authorization",
+                        Credentials.basic(login, password));
+
+                Request newRequest = builder.build();
+                return chain.proceed(newRequest);
+            }
+        }).build();
+
+        retrofit = new Retrofit.Builder()
+                .baseUrl(BASE_URL)
+                .addConverterFactory(JacksonConverterFactory.create())
+                .client(okHttpClient)
+                .build();
+
+        iDownloader = retrofit.create(IDownloader.class);
+    }
+
+    public MovieDownloader(Context context, IResponse iResponse) {
+        this.iResponse = iResponse;
         this.context = context;
         sharedPrefsManager = new SharedPrefsManager(context);
         login = sharedPrefsManager.getLoggedUserLogin();
@@ -114,12 +144,17 @@ public class MovieDownloader {
             @Override
             public void onResponse(Call<Message> call, Response<Message> response) {
                 if(response.body() != null){
-                    sharedPrefsManager.setIsLoggedIn(true);
+                    if(response.body().getMessage().equals("Login OK")){
+                        iResponse.succeed();
+                    }
+                }else {
+                    iResponse.failure();
                 }
             }
 
             @Override
             public void onFailure(Call<Message> call, Throwable t) {
+                iResponse.failure();
             }
         });
     }

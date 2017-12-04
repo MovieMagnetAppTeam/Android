@@ -10,7 +10,7 @@ public class SharedPrefsManager {
     public static final String USER_LOGGED_OUT_STATE = "a";
     public static final String USER_TEMPORARY_LOGIN = "a";
     public static final String USER_TEMPORARY_PASSWORD = "b";
-    public static String IS_LOGGED_IN = "false";
+    public static String IS_LOGGED_IN;
     private SharedPreferences sharedPreferences;
 
     public SharedPrefsManager(Context context) {
