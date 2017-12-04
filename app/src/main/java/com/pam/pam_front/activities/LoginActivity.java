@@ -15,11 +15,12 @@ import android.widget.Toast;
 
 import com.pam.pam_front.R;
 import com.pam.pam_front.downloader.MovieDownloader;
+import com.pam.pam_front.model.IResponse;
 import com.pam.pam_front.model.UserCredentials;
 import com.pam.pam_front.sharedPrefs.SharedPrefsManager;
 
 
-public class LoginActivity extends AppCompatActivity {
+public class LoginActivity extends AppCompatActivity implements IResponse{
 
     private Button loginButton;
     private Button registerButton;
@@ -78,15 +79,12 @@ public class LoginActivity extends AppCompatActivity {
     private void login() {
         sharedPrefsManager.setLoggedUserLogin(editTextUserLogin.getText().toString());
         sharedPrefsManager.setLoggedUserPassword(editTextUserPassword.getText().toString());
-        movieDownloader = new MovieDownloader(this);
+        movieDownloader = new MovieDownloader(this, this);
         movieDownloader.loginUser(new UserCredentials(editTextUserLogin.getText().toString(), editTextUserPassword.getText().toString()));
         if (!validate()) {
-            onValidateFailed();
             return;
         }
         loginButton.setEnabled(false);
-
-        onValidateSuccess();
     }
 
     private void startRegisterActivity() {
@@ -129,10 +127,16 @@ public class LoginActivity extends AppCompatActivity {
             editTextUserPassword.setError(getString(R.string.validPassword));
             valid = false;
         }
-        if(!sharedPrefsManager.isIsLoggedIn()) {
-            valid = false;
-        }
         return valid;
     }
 
+    @Override
+    public void succeed() {
+        onValidateSuccess();
+    }
+
+    @Override
+    public void failure() {
+        onValidateFailed();
+    }
 }
