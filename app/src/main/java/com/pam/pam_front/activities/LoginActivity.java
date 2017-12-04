@@ -37,7 +37,7 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void initViews() {
-        editTextUserLogin = (EditText) findViewById(R.id.userId);
+        editTextUserLogin = (EditText) findViewById(R.id.userEmail);
         editTextUserPassword = (EditText) findViewById(R.id.userPassword);
         editTextUserPassword.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override

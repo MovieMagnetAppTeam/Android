@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">PAM-Front</string>
-    <string name="your_id">Tutaj wpisz swój login</string>
+    <string name="your_email">Tutaj wpisz swój email</string>
     <string name="your_password">Tutaj wpisz swoje hasło</string>
     <string name="your_password_again">Tutaj wpisz swoje hasło ponownie</string>
     <string name="logIn">Zaloguj się</string>
@@ -43,4 +43,8 @@
     <string name="comments_title">Komentarze</string>
     <string name="your_comment">Tutaj wpisz swój komentarz</string>
     <string name="post_comment">Wyślij</string>
+    <string name="name">Name</string>
+    <string name="last_name">Last name</string>
+    <string name="type_your_name">Type your name</string>
+    <string name="type_your_last_name">Type your last name</string>
 </resources>

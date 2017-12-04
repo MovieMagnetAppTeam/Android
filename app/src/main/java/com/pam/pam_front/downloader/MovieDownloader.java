@@ -1,10 +1,10 @@
 package com.pam.pam_front.downloader;
 
 import com.pam.pam_front.model.Movie;
+import com.pam.pam_front.model.User;
 
 import java.io.IOException;
 import java.util.List;
-import java.util.concurrent.ExecutionException;
 
 import okhttp3.Credentials;
 import okhttp3.Interceptor;
@@ -20,7 +20,7 @@ public class MovieDownloader {
 
     private final Retrofit retrofit;
 //    TODO: Update to what BASE_URL backend or server has
-    private final String BASE_URL = "http://10.0.2.2:8080/moviemagnet-0.0.1-SNAPSHOT/";
+    private final String BASE_URL = "http://192.168.1.103:8080/"; //IP ADDRESS MUST BE CHANGED
     private IDownloader iDownloader;
 //    TODO: Możnaby coś z tego z sharedPrefów brać i ustawiać je przy logowaniu użytkownika
     private final String login = "admin@admin.com";
@@ -77,6 +77,19 @@ public class MovieDownloader {
             exception = e;
         }
         
+    }
+
+    public void registerUser(User user) {
+        Call<Object> call = iDownloader.registerUser(user);
+        call.enqueue(new Callback<Object>() {
+            @Override
+            public void onResponse(Call<Object> call, Response<Object> response) {
+            }
+
+            @Override
+            public void onFailure(Call<Object> call, Throwable t) {
+            }
+        });
     }
 
 }

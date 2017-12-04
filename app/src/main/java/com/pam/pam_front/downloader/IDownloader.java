@@ -23,5 +23,5 @@ public interface IDownloader {
     @GET("get_movie_id")
     Call<Movie> getMovieById(@Query("id") Long id);
     @POST("register")
-    Call<String> registerUser(@Body User user);
+    Call<Object> registerUser(@Body User user);
 }

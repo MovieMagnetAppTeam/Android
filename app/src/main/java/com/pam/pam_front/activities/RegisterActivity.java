@@ -9,24 +9,32 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.pam.pam_front.R;
+import com.pam.pam_front.downloader.MovieDownloader;
+import com.pam.pam_front.model.User;
 
 public class RegisterActivity extends AppCompatActivity {
 
     private Button registerButton;
-    private EditText editTextUserLogin;
+    private EditText editTextName;
+    private EditText editTextLastName;
+    private EditText editTextUserEmail;
     private EditText editTextUserPassword;
     private EditText editTextUserPasswordAgain;
     private String textUserLogin;
+    private MovieDownloader movieDownloader;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
+        movieDownloader = new MovieDownloader();
         initViews();
     }
 
     private void initViews() {
-        editTextUserLogin = (EditText) findViewById(R.id.userId);
+        editTextName = (EditText) findViewById(R.id.userName);
+        editTextLastName = (EditText) findViewById(R.id.userLastName);
+        editTextUserEmail = (EditText) findViewById(R.id.userEmail);
         editTextUserPassword = (EditText) findViewById(R.id.userPassword);
         editTextUserPasswordAgain = (EditText) findViewById(R.id.userPasswordAgain);
         registerButton = (Button) findViewById(R.id.registerButton);
@@ -44,6 +52,8 @@ public class RegisterActivity extends AppCompatActivity {
             return;
         }
 
+        User user = new User(editTextName.getText().toString(), editTextLastName.getText().toString(), editTextUserEmail.getText().toString(), editTextUserPassword.getText().toString());
+        movieDownloader.registerUser(user);
         startLoginActivity();
     }
 
@@ -59,13 +69,25 @@ public class RegisterActivity extends AppCompatActivity {
 
     private boolean validate() {
         boolean valid = true;
-        textUserLogin = editTextUserLogin.getText().toString();
+        textUserLogin = editTextUserEmail.getText().toString();
         String textUserPassword = editTextUserPassword.getText().toString();
         String textUserPasswordAgain = editTextUserPasswordAgain.getText().toString();
 
+        if (editTextName.getText().toString().isEmpty()) {
+            editTextName.requestFocus();
+            editTextName.setError(getString(R.string.type_your_name));
+            valid = false;
+        }
+
+        if (editTextLastName.getText().toString().isEmpty()) {
+            editTextLastName.requestFocus();
+            editTextLastName.setError(getString(R.string.type_your_last_name));
+            valid = false;
+        }
+
         if (textUserLogin.isEmpty()) {
-            editTextUserLogin.requestFocus();
-            editTextUserLogin.setError(getString(R.string.validLoginEmpty));
+            editTextUserEmail.requestFocus();
+            editTextUserEmail.setError(getString(R.string.validLoginEmpty));
             valid = false;
         }
 

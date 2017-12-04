@@ -10,12 +10,12 @@
     android:paddingTop="60dp">
 
     <EditText
-        android:id="@+id/userId"
+        android:id="@+id/userEmail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
         android:ems="10"
-        android:hint="@string/your_id"
+        android:hint="@string/your_email"
         android:textCursorDrawable="@null"
         android:textColor="@color/colorWhite"
         android:textColorHint="@color/colorWhite"
