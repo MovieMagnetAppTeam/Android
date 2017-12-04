@@ -1,5 +1,7 @@
 package com.pam.pam_front.downloader;
 
+import android.util.Log;
+
 import com.pam.pam_front.model.Movie;
 import com.pam.pam_front.model.User;
 
@@ -20,7 +22,7 @@ public class MovieDownloader {
 
     private final Retrofit retrofit;
 //    TODO: Update to what BASE_URL backend or server has
-    private final String BASE_URL = "http://192.168.1.103:8080/"; //IP ADDRESS MUST BE CHANGED
+    private final String BASE_URL = "http://192.168.1.102:8080/"; //IP ADDRESS MUST BE CHANGED
     private IDownloader iDownloader;
 //    TODO: Możnaby coś z tego z sharedPrefów brać i ustawiać je przy logowaniu użytkownika
     private final String login = "admin@admin.com";
@@ -60,22 +62,24 @@ public class MovieDownloader {
         call.enqueue(new Callback<List<Movie>>() {
             @Override
             public void onResponse(Call<List<Movie>> call, Response<List<Movie>> response) {
-
+                Log.d("Call", call.toString());
+                Log.d("Response", call.toString());
             }
 
             @Override
             public void onFailure(Call<List<Movie>> call, Throwable t) {
+                Log.d("Call", call.toString());
                 exception = new Exception(t);
             }
         });
 
 //        TODO: Albo od razu żądamy wyniku i czekamy na niego. Ale to może niesamowicie się mulić.
 
-        try {
-            call.execute().body();
-        } catch (IOException e) {
-            exception = e;
-        }
+//        try {
+//            call.execute().body();
+//        } catch (IOException e) {
+//            exception = e;
+//        }
         
     }
 
@@ -84,10 +88,13 @@ public class MovieDownloader {
         call.enqueue(new Callback<Object>() {
             @Override
             public void onResponse(Call<Object> call, Response<Object> response) {
+                Log.d("Call", call.toString());
+                Log.d("Response", call.toString());
             }
 
             @Override
             public void onFailure(Call<Object> call, Throwable t) {
+                Log.d("Call", call.toString());
             }
         });
     }
