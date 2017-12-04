@@ -14,10 +14,10 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.pam.pam_front.R;
+import com.pam.pam_front.downloader.MovieDownloader;
+import com.pam.pam_front.model.UserCredentials;
 import com.pam.pam_front.sharedPrefs.SharedPrefsManager;
 
-import static com.pam.pam_front.sharedPrefs.SharedPrefsManager.USER_TEMPORARY_LOGIN;
-import static com.pam.pam_front.sharedPrefs.SharedPrefsManager.USER_TEMPORARY_PASSWORD;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -27,6 +27,7 @@ public class LoginActivity extends AppCompatActivity {
     private EditText editTextUserPassword;
     private SharedPrefsManager sharedPrefsManager;
     private String textUserLogin;
+    private MovieDownloader movieDownloader;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -75,6 +76,10 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void login() {
+        sharedPrefsManager.setLoggedUserLogin(editTextUserLogin.getText().toString());
+        sharedPrefsManager.setLoggedUserPassword(editTextUserPassword.getText().toString());
+        movieDownloader = new MovieDownloader(this);
+        movieDownloader.loginUser(new UserCredentials(editTextUserLogin.getText().toString(), editTextUserPassword.getText().toString()));
         if (!validate()) {
             onValidateFailed();
             return;
@@ -96,7 +101,6 @@ public class LoginActivity extends AppCompatActivity {
 
     public void onValidateSuccess() {
         loginButton.setEnabled(true);
-        sharedPrefsManager.setLoggedUserLogin(textUserLogin);
         startMainActivity();
     }
 
@@ -119,22 +123,15 @@ public class LoginActivity extends AppCompatActivity {
             editTextUserLogin.requestFocus();
             editTextUserLogin.setError(getString(R.string.validLogin));
             valid = false;
-        } else if (!textUserLogin.equals(USER_TEMPORARY_LOGIN)) {
-            editTextUserLogin.requestFocus();
-            editTextUserLogin.setError(getString(R.string.validLogin));
-            valid = false;
         }
-
         if (textUserPassword.isEmpty()) {
             editTextUserPassword.requestFocus();
             editTextUserPassword.setError(getString(R.string.validPassword));
             valid = false;
-        } else if (!textUserPassword.equals(USER_TEMPORARY_PASSWORD)) {
-            editTextUserPassword.requestFocus();
-            editTextUserPassword.setError(getString(R.string.validPassword));
+        }
+        if(!sharedPrefsManager.isIsLoggedIn()) {
             valid = false;
         }
-
         return valid;
     }
 
