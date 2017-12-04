@@ -11,6 +11,7 @@ import android.widget.Toast;
 import com.pam.pam_front.R;
 import com.pam.pam_front.downloader.MovieDownloader;
 import com.pam.pam_front.model.User;
+import com.pam.pam_front.sharedPrefs.SharedPrefsManager;
 
 public class RegisterActivity extends AppCompatActivity {
 
@@ -22,11 +23,15 @@ public class RegisterActivity extends AppCompatActivity {
     private EditText editTextUserPasswordAgain;
     private String textUserLogin;
     private MovieDownloader movieDownloader;
+    private SharedPrefsManager sharedPrefsManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
+        sharedPrefsManager = new SharedPrefsManager(this);
+        sharedPrefsManager.setLoggedUserLogin("admin@admin.com");
+        sharedPrefsManager.setLoggedUserPassword("admin");
         movieDownloader = new MovieDownloader(this);
         initViews();
     }
