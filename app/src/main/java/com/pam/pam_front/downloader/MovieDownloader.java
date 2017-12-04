@@ -109,7 +109,9 @@ public class MovieDownloader {
             @Override
             public void onResponse(Call<Message> call, Response<Message> response) {
                 if(response.body() != null){
-                    sharedPrefsManager.setIsLoggedIn(true);
+                    if(response.body().getMessage().equals("Login OK")){
+                        sharedPrefsManager.setIsLoggedIn(true);
+                    }
                 }
             }
 
