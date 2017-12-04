@@ -13,18 +13,21 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.pam.pam_front.R;
+import com.pam.pam_front.downloader.MovieDownloader;
+import com.pam.pam_front.model.IResponse;
 
-import java.util.Arrays;
+import java.util.ArrayList;
 import java.util.List;
 
 import co.lujun.androidtagview.TagContainerLayout;
 import co.lujun.androidtagview.TagView;
 
-public class UsersProfileActivity extends AppCompatActivity {
+public class UsersProfileActivity extends AppCompatActivity implements IResponse {
 
     private List<String> tags;
     private EditText newTagEditText;
     private Button addTagButton;
+    TagContainerLayout tagContainerLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,10 +39,10 @@ public class UsersProfileActivity extends AppCompatActivity {
         setSupportActionBar(usersProfileActivityToolbar);
         ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
+        getUserTags();
+        tags = new ArrayList<>();
 
-        tags = Arrays.asList("komedia", "jordan", "gangsterzy", "japonia", "hahaha"); //Random example tags
-
-        final TagContainerLayout tagContainerLayout = (TagContainerLayout) findViewById(R.id.tagContainerLayout);
+        tagContainerLayout = (TagContainerLayout) findViewById(R.id.tagContainerLayout);
         tagContainerLayout.setTags(tags);
         tagContainerLayout.setOnTagClickListener(new TagView.OnTagClickListener() {
             @Override
@@ -74,6 +77,11 @@ public class UsersProfileActivity extends AppCompatActivity {
 
     }
 
+    private void getUserTags() {
+        MovieDownloader movieDownloader = new MovieDownloader(this, this);
+        movieDownloader.getUserTags();
+    }
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
@@ -85,5 +93,21 @@ public class UsersProfileActivity extends AppCompatActivity {
                 return super.onOptionsItemSelected(item);
 
         }
+    }
+
+    @Override
+    public void succeed() {
+
+    }
+
+    @Override
+    public void failure() {
+
+    }
+
+    @Override
+    public void setList(List tagNames) {
+        tagContainerLayout.setTags(tagNames);
+
     }
 }

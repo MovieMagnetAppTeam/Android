@@ -5,12 +5,14 @@ import android.content.Context;
 import com.pam.pam_front.model.IResponse;
 import com.pam.pam_front.model.Message;
 import com.pam.pam_front.model.Movie;
+import com.pam.pam_front.model.Tag;
 import com.pam.pam_front.model.User;
 import com.pam.pam_front.model.UserCredentials;
 import com.pam.pam_front.sharedPrefs.SharedPrefsManager;
 
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import okhttp3.Credentials;
@@ -155,6 +157,27 @@ public class MovieDownloader {
             @Override
             public void onFailure(Call<Message> call, Throwable t) {
                 iResponse.failure();
+            }
+        });
+    }
+
+    public void getUserTags(){
+        Call<List<Tag>> call = iDownloader.getUserTags();
+        call.enqueue(new Callback<List<Tag>>() {
+            @Override
+            public void onResponse(Call<List<Tag>> call, Response<List<Tag>> response) {
+                if(response.body().size() > 0){
+                    List <String> tagNames = new ArrayList<>();
+                    for (Tag tag : response.body()) {
+                        tagNames.add(tag.getName());
+                    }
+                    iResponse.setList(tagNames);
+                }
+            }
+
+            @Override
+            public void onFailure(Call<List<Tag>> call, Throwable t) {
+
             }
         });
     }

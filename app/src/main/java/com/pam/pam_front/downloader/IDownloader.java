@@ -29,7 +29,7 @@ public interface IDownloader {
     @GET("get_movie_id")
     Call<Movie> getMovieById(@Query("id") Long id);
     @GET("get_my_tags")
-    Call<Tag> getUserTags();
+    Call<List<Tag>> getUserTags();
     @GET("get_genres")
     Call<Genres> getGenres();
     @GET("search_movie_debug_omdb")

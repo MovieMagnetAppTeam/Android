@@ -19,6 +19,8 @@ import com.pam.pam_front.model.IResponse;
 import com.pam.pam_front.model.UserCredentials;
 import com.pam.pam_front.sharedPrefs.SharedPrefsManager;
 
+import java.util.List;
+
 
 public class LoginActivity extends AppCompatActivity implements IResponse{
 
@@ -138,5 +140,10 @@ public class LoginActivity extends AppCompatActivity implements IResponse{
     @Override
     public void failure() {
         onValidateFailed();
+    }
+
+    @Override
+    public void setList(List list) {
+
     }
 }
