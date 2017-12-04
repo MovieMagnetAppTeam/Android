@@ -1,9 +1,13 @@
 package com.pam.pam_front.downloader;
 
 import android.util.Log;
-
+import android.content.Context;
+import com.pam.pam_front.model.Message;
 import com.pam.pam_front.model.Movie;
 import com.pam.pam_front.model.User;
+import com.pam.pam_front.model.UserCredentials;
+import com.pam.pam_front.sharedPrefs.SharedPrefsManager;
+
 
 import java.io.IOException;
 import java.util.List;
@@ -25,12 +29,17 @@ public class MovieDownloader {
     private final String BASE_URL = "http://192.168.1.102:8080/"; //IP ADDRESS MUST BE CHANGED
     private IDownloader iDownloader;
 //    TODO: Możnaby coś z tego z sharedPrefów brać i ustawiać je przy logowaniu użytkownika
-    private final String login = "admin@admin.com";
-    private final String password = "admin";
+    private String login;
+    private String password;
     private Exception exception;
+    private SharedPrefsManager sharedPrefsManager;
+    private Context context;
 
-    public MovieDownloader() {
-
+    public MovieDownloader(Context context) {
+        this.context = context;
+        sharedPrefsManager = new SharedPrefsManager(context);
+        login = sharedPrefsManager.getLoggedUserLogin();
+        password = sharedPrefsManager.getLoggedUserPassword();
         OkHttpClient okHttpClient = new OkHttpClient().newBuilder().addInterceptor(new Interceptor() {
             @Override
             public okhttp3.Response intercept(Chain chain) throws IOException {
@@ -95,6 +104,22 @@ public class MovieDownloader {
             @Override
             public void onFailure(Call<Object> call, Throwable t) {
                 Log.d("Call", call.toString());
+            }
+        });
+    }
+
+    public void loginUser(final UserCredentials userCredentials) {
+        Call<Message> call = iDownloader.loginUser(userCredentials);
+        call.enqueue(new Callback<Message>() {
+            @Override
+            public void onResponse(Call<Message> call, Response<Message> response) {
+                if(response.body() != null){
+                    sharedPrefsManager.setIsLoggedIn(true);
+                }
+            }
+
+            @Override
+            public void onFailure(Call<Message> call, Throwable t) {
             }
         });
     }

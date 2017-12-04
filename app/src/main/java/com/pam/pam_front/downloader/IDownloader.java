@@ -1,12 +1,13 @@
 package com.pam.pam_front.downloader;
 
 import com.pam.pam_front.model.Comment;
-import com.pam.pam_front.model.Credentials;
 import com.pam.pam_front.model.Genres;
+import com.pam.pam_front.model.Message;
 import com.pam.pam_front.model.Movie;
 import com.pam.pam_front.model.Review;
 import com.pam.pam_front.model.Tag;
 import com.pam.pam_front.model.User;
+import com.pam.pam_front.model.UserCredentials;
 
 import java.util.List;
 
@@ -38,7 +39,7 @@ public interface IDownloader {
     @POST("register")
     Call<Object> registerUser(@Body User user);
     @POST("login")
-    Call<Object> loginUser(@Body Credentials credentials);
+    Call<Message> loginUser(@Body UserCredentials userCredentials);
     @POST("add_review")
     Call<Object> addReview(@Body Review review);
     @POST("add_comment")
