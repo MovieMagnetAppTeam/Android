@@ -1,6 +1,10 @@
 package com.pam.pam_front.downloader;
 
+import com.pam.pam_front.model.Comment;
+import com.pam.pam_front.model.Genres;
 import com.pam.pam_front.model.Movie;
+import com.pam.pam_front.model.Review;
+import com.pam.pam_front.model.Tag;
 import com.pam.pam_front.model.User;
 
 import java.util.List;
@@ -22,6 +26,20 @@ public interface IDownloader {
     Call<List<Movie>> getFilteredNews();
     @GET("get_movie_id")
     Call<Movie> getMovieById(@Query("id") Long id);
+    @GET("get_my_tags")
+    Call<Tag> getUserTags();
+    @GET("get_genres")
+    Call<Genres> getGenres();
+    @GET("search_movie_debug_omdb")
+    Call<List<Movie>> searchMovieOmdb(@Query("query") String name);
+    @GET("search_movie_debug_tmdb")
+    Call<List<Movie>> searchMovieTmdb(@Query("query") String name);
     @POST("register")
     Call<Object> registerUser(@Body User user);
+    @POST("login")
+    Call<Object> loginUser(@Body User user);
+    @POST("add_review")
+    Call<Object> addReview(@Body Review review);
+    @POST("add_comment")
+    Call<Object> addComment(@Body Comment comment);
 }

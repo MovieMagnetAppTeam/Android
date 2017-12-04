@@ -73,8 +73,7 @@ public class SingleMovieActivity extends AppCompatActivity {
         List<Comment> result = new ArrayList<Comment>();
         for (int i=1; i <= size; i++) {
             Comment movieNews = new Comment();
-            movieNews.author = getString(R.string.author) + i;
-            movieNews.description= getString(R.string.comment_description) + i;
+            movieNews.author_name = getString(R.string.author) + i;
             result.add(movieNews);
         }
         return result;
