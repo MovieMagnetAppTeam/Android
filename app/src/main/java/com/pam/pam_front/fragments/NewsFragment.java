@@ -5,12 +5,16 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.pam.pam_front.R;
 import com.pam.pam_front.controller.NewsAdapter;
+import com.pam.pam_front.downloader.MovieDownloader;
+import com.pam.pam_front.model.IResponse;
+import com.pam.pam_front.model.Movie;
 import com.pam.pam_front.model.MovieNews;
 
 import java.util.ArrayList;
@@ -20,7 +24,7 @@ import java.util.List;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class NewsFragment extends Fragment {
+public class NewsFragment extends Fragment implements IResponse {
 
 private RecyclerView newsListRecyclerView;
 
@@ -42,10 +46,8 @@ private RecyclerView newsListRecyclerView;
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
         linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         newsListRecyclerView.setLayoutManager(linearLayoutManager);
-
-        NewsAdapter newsAdapter = new NewsAdapter(createRandomNewsList(30));
-
-        newsListRecyclerView.setAdapter(newsAdapter);
+        MovieDownloader movieDownloader = new MovieDownloader(getContext(), this);
+        movieDownloader.getNews();
     }
 
     private List<MovieNews> createRandomNewsList(int size) {
@@ -59,4 +61,25 @@ private RecyclerView newsListRecyclerView;
         return result;
     }
 
+    @Override
+    public void succeed() {
+
+    }
+
+    @Override
+    public void succeed(List<Movie> movies) {
+        Log.d("NewsFragment", "succeed");
+        NewsAdapter newsAdapter = new NewsAdapter(movies);
+        newsListRecyclerView.setAdapter(newsAdapter);
+    }
+
+    @Override
+    public void failure() {
+
+    }
+
+    @Override
+    public void setList(List list) {
+
+    }
 }

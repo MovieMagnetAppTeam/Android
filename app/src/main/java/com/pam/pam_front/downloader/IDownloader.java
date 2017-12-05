@@ -9,8 +9,6 @@ import com.pam.pam_front.model.Tag;
 import com.pam.pam_front.model.User;
 import com.pam.pam_front.model.UserCredentials;
 
-import org.json.JSONObject;
-
 import java.util.List;
 
 import retrofit2.Call;

@@ -33,7 +33,6 @@ public class CommentAdapter extends RecyclerView.Adapter<CommentAdapter.CommentV
         Comment comment = commentList.get(position);
         commentViewHolder.commentAuthorNameTextView.setText(comment.author_name);
         commentViewHolder.commentDescriptionTextView.setText(comment.review_id.toString());
-
     }
 
     @Override

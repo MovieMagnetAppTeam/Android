@@ -16,6 +16,7 @@ import com.pam.pam_front.R;
 import com.pam.pam_front.downloader.MovieDownloader;
 import com.pam.pam_front.model.IResponse;
 import com.pam.pam_front.sharedPrefs.SharedPrefsManager;
+import com.pam.pam_front.model.Movie;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -101,6 +102,11 @@ public class UsersProfileActivity extends AppCompatActivity implements IResponse
 
     @Override
     public void succeed() {
+
+    }
+
+    @Override
+    public void succeed(List<Movie> movies) {
 
     }
 

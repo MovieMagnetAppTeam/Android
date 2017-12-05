@@ -13,6 +13,11 @@ public class Movie {
     private String type;
     private String imdb_id;
     private String id;
+    private List<Review> reviews;
+
+    public Movie() {
+
+    }
 
     public String getTitle() {
         return title;
@@ -84,5 +89,13 @@ public class Movie {
 
     public void setId(String id) {
         this.id = id;
+    }
+
+    public List<Review> getReviews() {
+        return reviews;
+    }
+
+    public void setReviews(List<Review> reviews) {
+        this.reviews = reviews;
     }
 }
