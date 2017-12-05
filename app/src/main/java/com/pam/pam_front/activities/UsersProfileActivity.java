@@ -15,6 +15,7 @@ import android.widget.Toast;
 import com.pam.pam_front.R;
 import com.pam.pam_front.downloader.MovieDownloader;
 import com.pam.pam_front.model.IResponse;
+import com.pam.pam_front.sharedPrefs.SharedPrefsManager;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,15 +26,17 @@ import co.lujun.androidtagview.TagView;
 public class UsersProfileActivity extends AppCompatActivity implements IResponse {
 
     private List<String> tags;
-    private EditText newTagEditText;
+    private EditText newTagEditText, usersNameEditText;
     private Button addTagButton;
     TagContainerLayout tagContainerLayout;
+    SharedPrefsManager sharedPrefsManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_users_profile);
         newTagEditText = (EditText) findViewById(R.id.newTagEditText);
+        usersNameEditText = (EditText) findViewById(R.id.usersNameEditText);
         addTagButton = (Button) findViewById(R.id.addTagButton);
         Toolbar usersProfileActivityToolbar = (Toolbar) findViewById(R.id.users_profile_activity_toolbar);
         setSupportActionBar(usersProfileActivityToolbar);
@@ -41,7 +44,8 @@ public class UsersProfileActivity extends AppCompatActivity implements IResponse
         actionBar.setDisplayHomeAsUpEnabled(true);
         getUserTags();
         tags = new ArrayList<>();
-
+        sharedPrefsManager = new SharedPrefsManager(this);
+        usersNameEditText.setText(sharedPrefsManager.getLoggedUserLogin());
         tagContainerLayout = (TagContainerLayout) findViewById(R.id.tagContainerLayout);
         tagContainerLayout.setTags(tags);
         tagContainerLayout.setOnTagClickListener(new TagView.OnTagClickListener() {

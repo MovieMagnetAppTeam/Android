@@ -74,6 +74,7 @@ public class SingleMovieActivity extends AppCompatActivity {
         for (int i=1; i <= size; i++) {
             Comment movieNews = new Comment();
             movieNews.author_name = getString(R.string.author) + i;
+            movieNews.review_id = (long) i;
             result.add(movieNews);
         }
         return result;

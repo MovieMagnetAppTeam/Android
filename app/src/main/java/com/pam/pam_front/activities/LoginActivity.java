@@ -76,6 +76,8 @@ public class LoginActivity extends AppCompatActivity implements IResponse{
                 startRegisterActivity();
             }
         });
+        editTextUserLogin.setText(sharedPrefsManager.getLoggedUserLogin());
+        editTextUserPassword.setText(sharedPrefsManager.getLoggedUserPassword());
     }
 
     private void login() {
@@ -112,6 +114,8 @@ public class LoginActivity extends AppCompatActivity implements IResponse{
     private void onValidateFailed() {
         Toast.makeText(LoginActivity.this, R.string.validFail, Toast.LENGTH_SHORT).show();
         loginButton.setEnabled(true);
+        sharedPrefsManager.setLoggedUserLogin("");
+        sharedPrefsManager.setLoggedUserPassword("");
     }
 
     private boolean validate() {

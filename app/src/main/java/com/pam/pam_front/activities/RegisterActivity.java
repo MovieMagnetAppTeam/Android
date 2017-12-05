@@ -33,6 +33,8 @@ public class RegisterActivity extends AppCompatActivity {
         sharedPrefsManager.setLoggedUserLogin("admin@admin.com");
         sharedPrefsManager.setLoggedUserPassword("admin");
         movieDownloader = new MovieDownloader(this);
+        sharedPrefsManager.setLoggedUserLogin("");
+        sharedPrefsManager.setLoggedUserPassword("");
         initViews();
     }
 
