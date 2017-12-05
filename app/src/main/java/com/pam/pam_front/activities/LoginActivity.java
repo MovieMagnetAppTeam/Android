@@ -16,6 +16,7 @@ import android.widget.Toast;
 import com.pam.pam_front.R;
 import com.pam.pam_front.downloader.MovieDownloader;
 import com.pam.pam_front.model.IResponse;
+import com.pam.pam_front.model.Movie;
 import com.pam.pam_front.model.UserCredentials;
 import com.pam.pam_front.sharedPrefs.SharedPrefsManager;
 
@@ -135,6 +136,11 @@ public class LoginActivity extends AppCompatActivity implements IResponse{
     @Override
     public void succeed() {
         onValidateSuccess();
+    }
+
+    @Override
+    public void succeed(List<Movie> movies) {
+
     }
 
     @Override

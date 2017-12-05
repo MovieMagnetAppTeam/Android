@@ -182,4 +182,23 @@ public class MovieDownloader {
         });
     }
 
+    public void getNews() {
+        Call<List<Movie>> call = iDownloader.getNews();
+        call.enqueue(new Callback<List<Movie>>() {
+            @Override
+            public void onResponse(Call<List<Movie>> call, Response<List<Movie>> response) {
+                Log.d("Response", "getNews");
+                iResponse.succeed(response.body());
+            }
+
+            @Override
+            public void onFailure(Call<List<Movie>> call, Throwable t) {
+                Log.d("Failure", call.toString());
+                Exception ex = new Exception(t);
+                Log.d("Exception", ex.getMessage());
+                Log.d("Failure", "getNews");
+            }
+        });
+    }
+
 }
