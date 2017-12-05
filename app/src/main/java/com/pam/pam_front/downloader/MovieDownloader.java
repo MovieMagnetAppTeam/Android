@@ -94,17 +94,16 @@ public class MovieDownloader {
         iDownloader = retrofit.create(IDownloader.class);
     }
 
-    private void searchMovie(String movieTitle) {
+    public void searchMovie(String movieTitle) {
 
-        Call<List<Movie>> call = iDownloader.getMovie("Fight Club");
-
-//        TODO: Asynchronicznie, więc szybciej
+        Call<List<Movie>> call = iDownloader.getMovie(movieTitle);
 
         call.enqueue(new Callback<List<Movie>>() {
             @Override
             public void onResponse(Call<List<Movie>> call, Response<List<Movie>> response) {
                 Log.d("Call", call.toString());
-                Log.d("Response", call.toString());
+                Log.d("Response", response.toString());
+                iResponse.succeed(response.body());
             }
 
             @Override
@@ -113,15 +112,26 @@ public class MovieDownloader {
                 exception = new Exception(t);
             }
         });
-
-//        TODO: Albo od razu żądamy wyniku i czekamy na niego. Ale to może niesamowicie się mulić.
-
-//        try {
-//            call.execute().body();
-//        } catch (IOException e) {
-//            exception = e;
-//        }
         
+    }
+
+    public void searchTvShow(String title) {
+        Call<List<Movie>> call = iDownloader.getTvShow(title);
+
+        call.enqueue(new Callback<List<Movie>>() {
+            @Override
+            public void onResponse(Call<List<Movie>> call, Response<List<Movie>> response) {
+                Log.d("Call", call.toString());
+                Log.d("Response", response.toString());
+                iResponse.succeed(response.body());
+            }
+
+            @Override
+            public void onFailure(Call<List<Movie>> call, Throwable t) {
+                Log.d("Call", call.toString());
+                exception = new Exception(t);
+            }
+        });
     }
 
     public void registerUser(User user) {

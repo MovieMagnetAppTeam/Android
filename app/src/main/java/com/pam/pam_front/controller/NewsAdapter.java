@@ -48,43 +48,7 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.NewsViewHolder
         Movie movieNews = newsList.get(position);
         newsViewHolder.movieTitleTextView.setText(movieNews.getTitle());
         newsViewHolder.newsDescriptionTextView.setText(movieNews.getDescription());
-//        try {
-//            newsViewHolder.movieCover.setImageBitmap(BitmapFactory.decodeStream(new URL(movieNews.getPoster()).openConnection().getInputStream()));
-//        } catch (IOException e) {
-//            Log.d("URLException", e.toString());
-//        }
-//        URL newurl = null;
-//        try {
-//            newurl = new URL(movieNews.getPoster());
-//        } catch (MalformedURLException e) {
-//            e.printStackTrace();
-//        }
-//        Bitmap bitmap = null;
-//        try {
-//            bitmap = BitmapFactory.decodeStream(newurl.openConnection().getInputStream());
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-//        newsViewHolder.movieCover.setImageBitmap(getBitmapFromURL(movieNews.getPoster()));
         new ImageLoadTask(movieNews.getPoster(), newsViewHolder.movieCover).execute();
-    }
-
-    public static Bitmap getBitmapFromURL(String src) {
-        try {
-            Log.e("src",src);
-            URL url = new URL(src);
-            HttpURLConnection connection = (HttpURLConnection) url.openConnection();
-            connection.setDoInput(true);
-            connection.connect();
-            InputStream input = connection.getInputStream();
-            Bitmap myBitmap = BitmapFactory.decodeStream(input);
-            Log.e("Bitmap","returned");
-            return myBitmap;
-        } catch (IOException e) {
-            e.printStackTrace();
-            Log.e("Exception",e.getMessage());
-            return null;
-        }
     }
 
     @Override
