@@ -53,4 +53,5 @@ dependencies {
     compile 'com.fasterxml.jackson.jaxrs:jackson-jaxrs-base:2.4.1'
     compile 'com.fasterxml.jackson.jaxrs:jackson-jaxrs-json-provider:2.4.1'
     compile 'com.fasterxml.jackson.module:jackson-module-jaxb-annotations:2.4.1'
+    compile 'com.jakewharton:butterknife:8.8.1'
 }
